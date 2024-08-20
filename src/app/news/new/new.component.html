@@ -1,1 +1,59 @@
-<p>new works!</p>
+@if(vaccines&&cases){
+<div class="container">
+  <mat-card matBadge="{{ vaccines.abbreviation }}">
+    <mat-card-header>
+      <mat-card-title>Oltások: {{ vaccines.country }}</mat-card-title>
+      <mat-card-title>Populáció {{ vaccines.population }} fő</mat-card-title>
+      <mat-card-subtitle
+        >Utolsó frissítés: {{ vaccines.updated }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <mat-tab-group
+        mat-stretch-tabs="true"
+        mat-align-tabs="start"
+        animationDuration="1200ms"
+      >
+        <mat-tab label="Beadott vakcinák"
+          >{{ vaccines.administered }} db</mat-tab
+        >
+        <mat-tab label="Oltottak száma"
+          >{{ vaccines.people_vaccinated }} fő</mat-tab
+        >
+        <mat-tab label="Várható élettartam"
+          >{{ vaccines.life_expectancy }} év</mat-tab
+        >
+      </mat-tab-group>
+    </mat-card-content>
+    <mat-card-footer>
+      {{ vaccines.continent }} - {{ vaccines.location }}
+    </mat-card-footer>
+  </mat-card>
+
+  <mat-card matBadge="{{ cases.abbreviation }}">
+    <mat-card-header>
+      <mat-card-title>Esetek: {{ cases.country }}</mat-card-title>
+      <mat-card-title>Populáció {{ cases.population }} fő</mat-card-title>
+      <mat-card-subtitle
+        >Utolsó frissítés: {{ cases.updated }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content
+      ><mat-tab-group
+        mat-stretch-tabs="true"
+        mat-align-tabs="start"
+        animationDuration="1200ms"
+      >
+        <mat-tab label="Gyógyultak">{{ cases.recovered }} fő</mat-tab>
+        <mat-tab label="Megerősített fertőzések"
+          >{{ cases.confirmed }} fő</mat-tab
+        >
+        <mat-tab label="Halálozások">{{ cases.deaths }} fő</mat-tab>
+      </mat-tab-group></mat-card-content
+    >
+    <mat-card-footer
+      >{{ cases.continent }} - {{ cases.location }}</mat-card-footer
+    >
+  </mat-card>
+</div>
+}

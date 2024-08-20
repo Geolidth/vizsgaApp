@@ -1,1 +1,26 @@
-<p>news-list works!</p>
+@if(countries.length!=0){
+<div class="header">
+  <mat-form-field>
+    <mat-label>Counrty</mat-label>
+    <mat-select [(ngModel)]="selectedCountry">
+      @for(country of countries; track country){
+      <mat-option [value]="country">{{ country }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <button
+    mat-raised-button
+    (click)="addCountry()"
+    color="accent"
+    [textContent]="buttontext()"
+    style="color: black"
+  ></button>
+</div>
+} @else {
+<h1 style="text-align: center">
+  Már minden rendelkezésre álló adatot lekértél 💉
+</h1>
+} @for(country of countryArray; track country) {
+<app-new [country]="country" />}
+
+<h2>A fenti információk hivatalosan megerősített adatokat tartalmaznak!</h2>

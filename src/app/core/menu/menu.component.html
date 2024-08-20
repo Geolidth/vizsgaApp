@@ -1,8 +1,30 @@
 <mat-toolbar color="primary">
-  <div>
-    <span><img [src]="logo()" alt="" /></span>
+  @if(!authService.isLoggedIn){
+  <div class="leftSide">
+    <span><img [src]="logo()" alt="" [routerLink]="['/']" /></span>
+    <h3>Hírek a Covid világából</h3>
   </div>
-  <div>
-    <button mat-raised-button color="secondary">Bejelentkezés</button>
+  }@else{
+  <div class="leftSide">
+    <span><img [src]="logo()" alt="" [routerLink]="['/news']" /></span>
+    <h3>Hírek a Covid világából</h3>
+  </div>
+  }
+
+  <div class="buttons">
+    @if(authService.isLoggedIn){
+    <button mat-flat-button color="primary" [routerLink]="['/news']">
+      Újdonságok
+    </button>
+    <button mat-flat-button color="primary" [routerLink]="['/news/chart']">
+      Vizuális hírek
+    </button>
+    <span>{{ currentUser()?.username }}</span>
+    <button mat-raised-button (click)="logout()">Kijelentkezés</button>
+    }@else{
+    <button mat-raised-button [routerLink]="['/auth/login']">
+      Bejelentkezés
+    </button>
+    }
   </div>
 </mat-toolbar>

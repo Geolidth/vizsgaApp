@@ -1,0 +1,23 @@
+<div class="header">
+  <mat-form-field>
+    <mat-label>Counrty</mat-label>
+    <mat-select [(ngModel)]="country">
+      @for(country of countries; track country){
+      <mat-option [value]="country">{{ country }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <button
+    mat-raised-button
+    (click)="chooseCountry()"
+    color="accent"
+    [textContent]="buttonText()"
+    style="color: black"
+  ></button>
+</div>
+@if(vaccine&&case){<highcharts-chart
+  [Highcharts]="Highcharts"
+  [options]="chartOptions"
+  style="width: 100%; height: 400px; display: block"
+></highcharts-chart
+>}

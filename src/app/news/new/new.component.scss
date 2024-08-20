@@ -1,0 +1,21 @@
+.container {
+  margin: 2% auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  mat-card {
+    padding: 1%;
+    width: 45%;
+    background-color: cadetblue;
+    color: gold;
+
+    box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.4);
+
+    mat-tab-group {
+      text-align: center;
+      font-weight: 500;
+      margin: 30px;
+    }
+  }
+}
